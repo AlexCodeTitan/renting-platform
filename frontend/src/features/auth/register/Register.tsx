@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
-import { register, reset } from "../authSlice";
+import { reset } from "../authSlice";
 import { RegisterFormData } from "../types";
+import { AuthWrapper } from "./Register.styles";
 
 const initialState: RegisterFormData = {
   name: "",
@@ -50,75 +51,76 @@ const Register: React.FC = () => {
       return;
     }
 
-    // Prepare data for registration (excluding confirmPassword as it's not needed)
     // const { confirmPassword, ...registrationData } = formData;
     // dispatch(register(registrationData));
     console.log(formData);
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={onChange}
-        placeholder="Name"
-        required
-      />
-      <input
-        type="text"
-        name="surname"
-        value={formData.surname}
-        onChange={onChange}
-        placeholder="Surname"
-        required
-      />
-      <input
-        type="tel"
-        name="phoneNumber"
-        value={formData.phoneNumber}
-        onChange={onChange}
-        placeholder="Phone Number"
-        required
-      />
-      <select
-        name="accountType"
-        value={formData.accountType}
-        onChange={onChange}
-        required
-      >
-        <option value="tenant">Tenant</option>
-        <option value="landlord">Landlord</option>
-      </select>
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={onChange}
-        placeholder="Email"
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={onChange}
-        placeholder="Password"
-        required
-      />
-      <input
-        type="password"
-        name="confirmPassword"
-        value={formData.confirmPassword}
-        onChange={onChange}
-        placeholder="Confirm Password"
-        required
-      />
-      <button type="submit" disabled={isLoading}>
-        Register
-      </button>
-    </form>
+    <AuthWrapper>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={onChange}
+          placeholder="Name"
+          required
+        />
+        <input
+          type="text"
+          name="surname"
+          value={formData.surname}
+          onChange={onChange}
+          placeholder="Surname"
+          required
+        />
+        <input
+          type="tel"
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={onChange}
+          placeholder="Phone Number"
+          required
+        />
+        <select
+          name="accountType"
+          value={formData.accountType}
+          onChange={onChange}
+          required
+        >
+          <option value="tenant">Tenant</option>
+          <option value="landlord">Landlord</option>
+        </select>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={onChange}
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={onChange}
+          placeholder="Password"
+          required
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={onChange}
+          placeholder="Confirm Password"
+          required
+        />
+        <button type="submit" disabled={isLoading}>
+          Register
+        </button>
+      </form>
+    </AuthWrapper>
   );
 };
 
