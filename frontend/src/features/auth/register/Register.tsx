@@ -16,6 +16,7 @@ import {
 } from "../AuthPage.style";
 import Button from "../../../components/button/Button";
 import InputGroup from "../../../components/input/Input";
+import CustomSelect from "../../../components/customSelect/CustomSelect";
 
 const initialState: RegisterFormData = {
   name: "",
@@ -49,10 +50,13 @@ const Register: React.FC = () => {
     };
   }, [isError, isSuccess, message, dispatch]);
 
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (name: string, value: string) => {
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    onChange(name, value);
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -78,7 +82,7 @@ const Register: React.FC = () => {
             id="name"
             inputName="name"
             value={formData.name}
-            onChange={onChange}
+            onChange={handleInputChange}
             required
           />
           <InputGroup
@@ -88,7 +92,7 @@ const Register: React.FC = () => {
             id="surname"
             inputName="surname"
             value={formData.surname}
-            onChange={onChange}
+            onChange={handleInputChange}
             required
           />
           <InputGroup
@@ -98,19 +102,19 @@ const Register: React.FC = () => {
             id="phoneNumber"
             inputName="phoneNumber"
             value={formData.phoneNumber}
-            onChange={onChange}
+            onChange={handleInputChange}
             required
           />
 
-          <select
-            name="accountType"
+          <CustomSelect
             value={formData.accountType}
-            onChange={onChange}
+            onChange={(value: string) => onChange("accountType", value)}
             required
-          >
-            <option value="tenant">Tenant</option>
-            <option value="landlord">Landlord</option>
-          </select>
+            options={[
+              { value: "tenant", name: "Tenant" },
+              { value: "landlord", name: "Landlord" },
+            ]}
+          />
 
           <InputGroup
             htmlFor="email"
@@ -119,7 +123,7 @@ const Register: React.FC = () => {
             id="email"
             inputName="email"
             value={formData.email}
-            onChange={onChange}
+            onChange={handleInputChange}
             required
           />
           <InputGroup
@@ -129,7 +133,7 @@ const Register: React.FC = () => {
             id="password"
             inputName="password"
             value={formData.password}
-            onChange={onChange}
+            onChange={handleInputChange}
             required
           />
           <InputGroup
@@ -139,7 +143,7 @@ const Register: React.FC = () => {
             id="confirmPassword"
             inputName="confirmPassword"
             value={formData.confirmPassword}
-            onChange={onChange}
+            onChange={handleInputChange}
             required
           />
         </InputWrapper>

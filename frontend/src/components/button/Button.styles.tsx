@@ -5,7 +5,11 @@ export const StyledButton = styled.button<ButtonProps>`
   width: ${(props) =>
     props.size === "sm" ? "80px" : props.size === "lg" ? "120px" : "100px"};
 
-  background-color: ${(props) => (props.secondary ? "#59a7b4" : "#6688cc")};
+  background-color: #6688cc;
+  &[data-secondary="true"] {
+    background-color: #59a7b4;
+  }
+
   color: #f1f5f9;
 
   border-radius: 8px;
@@ -18,11 +22,19 @@ export const StyledButton = styled.button<ButtonProps>`
   transition: border-color 0.25s;
 
   &:hover {
-    background-color: ${(props) => (props.secondary ? "#67c0cf" : "#7d98cf")};
+    background-color: #7d98cf;
+
+    &[data-secondary="true"] {
+      background-color: #67c0cf;
+    }
   }
   &:focus,
   &:focus-visible {
-    background-color: ${(props) => (props.secondary ? "#42828d" : "#586b91")};
+    background-color: #586b91;
+
+    &[data-secondary="true"] {
+      background-color: #42828d;
+    }
   }
   &:disabled {
     background-color: #555f72;

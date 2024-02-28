@@ -11,6 +11,7 @@ export const AuthWrapper = styled.div`
 
 export const FormContainer = styled.form`
   width: 20%;
+  min-width: 350px;
   gap: 50px;
   display: flex;
   flex-direction: column;

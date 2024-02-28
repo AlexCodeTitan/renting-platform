@@ -8,13 +8,14 @@ type ProtectedRouteProps = {
 };
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
-  const user = useSelector(SelectUser);
+  // const user = useSelector(SelectUser);
 
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
+  // if (!user) {
+  //   return <Navigate to="/login" />;
+  // }
 
-  return element;
+  return <Navigate to="/login" />;
+  // return element;
 };
 
 export default ProtectedRoute;

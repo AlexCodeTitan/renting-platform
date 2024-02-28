@@ -3,7 +3,7 @@ import styled from "styled-components";
 type InputProps = {
   type: string;
   id: string;
-  inputName: string;
+  name: string;
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
@@ -25,6 +25,12 @@ export const Label = styled.label`
 export const Input = styled.input<InputProps>`
   min-width: 200px;
   height: 34px;
+  padding: 0 10px;
   border-radius: 8px;
   border: 1px solid #6688cc;
+
+  &:focus {
+    outline: 1px solid #59a7b4;
+    border: 1px solid #59a7b4;
+  }
 `;

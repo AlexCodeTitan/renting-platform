@@ -3,7 +3,7 @@ import { StyledButton } from "./Button.styles";
 
 export type ButtonProps = {
   children: React.ReactNode;
-  type?: string;
+  type?: "button" | "submit" | "reset";
   secondary?: boolean;
   disabled?: boolean;
   size?: "sm" | "lg";
@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({ ...props }) => {
       onClick={props.onClick}
       size={props.size}
       disabled={props.disabled}
-      secondary={props.secondary}
+      data-secondary={props.secondary ? "true" : "false"}
     >
       {props.children}
     </StyledButton>

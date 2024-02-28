@@ -19,7 +19,7 @@ const InputGroup: React.FC<InputComponentProps> = ({ ...props }) => {
       <Input
         type={props.type}
         id={props.id}
-        inputName={props.inputName}
+        name={props.inputName}
         value={props.value}
         onChange={props.onChange}
         required={props.required}

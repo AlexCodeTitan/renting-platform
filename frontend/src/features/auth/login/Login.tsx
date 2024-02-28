@@ -64,7 +64,7 @@ const Login: React.FC = () => {
         </InputWrapper>
         <ButtonWrapper>
           <Link to={"/register"}>
-            <Button>&lt; SignUp</Button>
+            <Button secondary={true}>&lt; SignUp</Button>
           </Link>
           <Button type="submit">LogIn</Button>
         </ButtonWrapper>
