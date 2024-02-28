@@ -1,8 +1,31 @@
 {
-  "hash": "025d260c",
+  "hash": "27754a33",
   "configHash": "895159eb",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "97234cd5",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "86940927",
+  "browserHash": "3fe6b41b",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "b217fb25",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "d9ec5f20",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "c0e291ea",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-XFZ2DVVZ": {
+      "file": "chunk-XFZ2DVVZ.js"
+    }
+  }
 }
